@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="col-md-9 col-md-offset-3">
+        <h2 class="label-font">Booking Records</h2>
+        <form name="form">
+            <div class="form-group">
+                <label class="label-font" for="uid">Booking Date</label>
+                <div>
+                    <md-datepicker ng-model="bkDate" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <div class="error-msg" ng-if="errorMessage">{{ errorMessage }}</div>
+            <div class="form-actions">
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="booking();">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+    <br>
+    <br>
+    <div>
+        <div class="table-responsive">
+            <table class="table" style="background-color: white">
+                <thead>
+                    <tr>
+                        <th>Booking Date</th>
+                        <th>Start Time</th>
+                        <th>No. of Attendance</th>
+                        <th>Booking Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="q in searchBooking.response">
+                        <td>{{ q.bookingdate.substring(0, 10) }}</td>
+                        <td>{{ q.bookingstarttime }}</td>
+                        <td>{{ q.bookingattendance }}</td>
+                        <td>{{ q.bookingstatus }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+

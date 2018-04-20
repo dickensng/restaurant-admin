@@ -1,0 +1,51 @@
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+		<h2 class="label-font">Order Records</h2>
+		<form name="form">
+			<div class="form-group">
+				<label class="label-font" for="uid">Order Date</label>
+				<div>
+					<md-datepicker ng-model="bkDate" md-placeholder="Enter date"></md-datepicker>
+				</div>
+			</div>
+			<div class="error-msg" ng-if="errorMessage">{{ errorMessage }}</div>
+			<div class="form-actions">
+				<button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" ng-click="orders();">Search</button>
+			</div>
+		</form>
+	</div>
+</div>
+<br>
+<br>
+<div>
+	<div class="table-responsive">
+		<table class="table" style="background-color: white">
+			<thead>
+				<tr>
+					<th>Order ID</th>
+					<th>Order Date</th>
+					<th>User ID</th>
+					<th>Order Status</th>
+					<th>Menu ID</th>
+					<th>Menu Name</th>
+					<th>Menu Type</th>
+					<th>Order Quantity</th>
+					<th>Menu Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="q in searchOrders.response">
+					<td>{{ q.orderid }}</td>
+					<td>{{ q.orderdate.substring(0, 10) }}</td>
+					<td>{{ q.UID }}</td>
+					<td>{{ q.orderstatus }}</td>
+					<td>{{ q.menuID }}</td>
+					<td>{{ q.menuname }}</td>
+					<td>{{ q.menutype }}</td>
+					<td>{{ q.quantity }}</td>
+					<td>{{ q.menuprice }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
