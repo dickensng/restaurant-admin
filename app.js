@@ -49,18 +49,18 @@ dnApp.controller('menuController', function ($scope) {
 });
 
 // create the controller and inject Angular's $scope
-dnApp.controller('bookingController', function ($scope, $rootScope, $http, $timeout, $cookies, UserService) {
+dnApp.controller('bookingController', function ($scope, $rootScope, $http, $timeout, $cookies, $location, UserService) {
 	
 	$scope.errorMessage = false;
 
+	$scope.userid = $cookies.get('userid');
+
+	if ($scope.userid == undefined) {
+		$location.path("/");
+	}
+
 	$scope.booking = function () {
-		$scope.userid = $cookies.get('userid');
-
-		if ($scope.userid == undefined) {
-			$scope.errorMessage = "Please login!";
-			return;
-		}
-
+		
 		if ($scope.bkDate == undefined) {
 			$scope.errorMessage = "Please input booking date!";
 			return;
@@ -82,14 +82,20 @@ dnApp.controller('bookingController', function ($scope, $rootScope, $http, $time
 
 });
 
-dnApp.controller('orderController', function ($scope, $rootScope, $http, $timeout, $cookies, UserService) {
+dnApp.controller('orderController', function ($scope, $rootScope, $http, $timeout, $cookies, $location, UserService) {
 	$scope.errorMessage = false;
+
+	$scope.userid = $cookies.get('userid');
+
+	if ($scope.userid == undefined) {
+		$location.path("/");
+	}
 
 	$scope.orders = function () {
 		$scope.userid = $cookies.get('userid');
 
 		if ($scope.userid == undefined) {
-			$scope.errorMessage = "Please login!";
+			$location.path("/");
 			return;
 		}
 
