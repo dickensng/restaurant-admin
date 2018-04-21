@@ -9,8 +9,16 @@
 
 *{ margin:0; padding:0}
 
-body {
+html, body {
     margin-left: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+     -o-background-size: cover;
+    background-size: cover;
+    background-color: black !important;
+}
+
+.content {
     background-color: black;
 }
 
@@ -101,4 +109,9 @@ md-input-container.md-input-focused label {
 .left-right {
     width: 95%;
     margin:0 auto;
+}
+
+.table-responsive{
+    max-width: auto;
+    background-color: white;
 }
