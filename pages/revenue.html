@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="alert alert-success" ng-if="removeMessage">{{ removeMessage }}</div>
+
+<div class="container">
+        <h2 class="label-font">Monthly Revenue</h2>
+</div>
+
+<div class="table-responsive">        
+  <table class="table" style="background-color: white">
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="q in searchRevenue.response">
+        <td>{{ q.yy }} / {{ q.mm }}</td>
+        <td>{{ q.revenue }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  
+</div>
+<!-- /.container -->

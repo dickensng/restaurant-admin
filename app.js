@@ -23,6 +23,12 @@ dnApp.config(function ($routeProvider) {
 			controller: 'signinController'
 		})
 
+		// route for the revenue page
+		.when('/revenue', {
+			templateUrl: 'pages/revenue.html',
+			controller: 'revenueController'
+		})
+        
 		// route for the booking page
 		.when('/booking', {
 			templateUrl: 'pages/booking.html',
@@ -45,6 +51,29 @@ dnApp.factory('UserService', function () {
 
 // create the controller and inject Angular's $scope
 dnApp.controller('menuController', function ($scope) {
+
+});
+
+// create the controller and inject Angular's $scope
+dnApp.controller('revenueController', function ($scope, $rootScope, $http, $timeout, $cookies, $location, UserService) {
+	
+	$scope.errorMessage = false;
+
+	$scope.userid = $cookies.get('userid');
+
+	if ($scope.userid == undefined) {
+		$location.path("/");
+	}
+
+    $http({
+        method: "GET",
+        url: "php/revenue.php"
+    }).then(function mySuccess(response) {
+        $scope.searchRevenue = response.data;
+        
+    }, function myError(response) {
+        $scope.searchRevenue = response.status;
+    });
 
 });
 
