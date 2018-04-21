@@ -23,6 +23,7 @@
                 <thead>
                     <tr>
                         <th>Booking Date</th>
+                        <th>User ID</th>
                         <th>Start Time</th>
                         <th>No. of Attendance</th>
                         <th>Booking Status</th>
@@ -31,6 +32,7 @@
                 <tbody>
                     <tr ng-repeat="q in searchBooking.response">
                         <td>{{ q.bookingdate.substring(0, 10) }}</td>
+                        <td>{{ q.UID }}</td>
                         <td>{{ q.bookingstarttime }}</td>
                         <td>{{ q.bookingattendance }}</td>
                         <td>{{ q.bookingstatus }}</td>
