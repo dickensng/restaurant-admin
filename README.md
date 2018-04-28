@@ -9,3 +9,12 @@ http://localhost/restaurant-admin/
 
 PS: Before access and admin page, you must start the restaurant-api service first.
 
+
+Demo User:
+
+Login ID: admin
+  
+Password: demo
+
+
+
